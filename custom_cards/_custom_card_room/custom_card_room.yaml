@@ -126,7 +126,18 @@ card_room:
           action: "toggle"
         hold_action:
           action: "more-info"
-        entity: "[[[return variables.entity_id_1]]]"
+        entity: >
+          [[[
+            if (variables.entity_id_1) {
+              return variables.entity_id_1;
+            }
+          ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.entity_id_1; ]]]"
+            styles:
+              card:
+                - display: "none"
     i2:
       card:
         type: "custom:button-card"
@@ -138,7 +149,18 @@ card_room:
           action: "toggle"
         hold_action:
           action: "more-info"
-        entity: "[[[return variables.entity_id_2]]]"
+        entity: >
+          [[[
+            if (variables.entity_id_2) {
+              return variables.entity_id_2;
+            }
+          ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.entity_id_2; ]]]"
+            styles:
+              card:
+                - display: "none"
     i3:
       card:
         type: "custom:button-card"
@@ -150,7 +172,18 @@ card_room:
           action: "toggle"
         hold_action:
           action: "more-info"
-        entity: "[[[return variables.entity_id_3]]]"
+        entity: >
+          [[[
+            if (variables.entity_id_3) {
+              return variables.entity_id_3;
+            }
+          ]]]
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.entity_id_3; ]]]"
+            styles:
+              card:
+                - display: "none"
     i4:
       card:
         type: "custom:button-card"
@@ -162,7 +195,18 @@ card_room:
           action: "toggle"
         hold_action:
           action: "more-info"
-        entity: "[[[return variables.entity_id_4]]]"
+        entity: >
+          [[[
+            if (variables.entity_id_4) {
+              return variables.entity_id_4;
+            }
+          ]]]"
+        state:
+          - operator: "template"
+            value: "[[[ return !variables.entity_id_4; ]]]"
+            styles:
+              card:
+                - display: "none"
 widget_icon_room:
   tap_action:
     action: "toggle"
