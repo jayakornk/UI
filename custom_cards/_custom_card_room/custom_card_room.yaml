@@ -33,8 +33,8 @@ card_room:
     img_cell:
       - background-color: "rgba(var(--color-theme),0.05)"
       - border-radius: "50%"
-      - width: "80%"
-      - height: "80%"
+      - width: "75%"
+      - height: "75%"
       - max-width: "none"
       - max-height: "none"
       - position: "absolute"
@@ -46,52 +46,75 @@ card_room:
     name:
       - justify-self: "start"
       - font-weight: "bold"
-      - font-size: "16px"
-      - margin-left: "9px"
-      - margin-top: "9px"
+      - font-size: "14px"
+      - margin-left: "6px"
+      - margin-top: "3px"
     label:
       - justify-self: "start"
       - font-weight: "bold"
       - font-size: "12px"
       - filter: "opacity(40%)"
-      - margin-left: "9px"
-      - margin-top: "-38%"
+      - margin-left: "6px"
+      - margin-top: "-30%"
     state:
       - justify-self: "start"
       - font-weight: "bold"
       - font-size: "12px"
       - filter: "opacity(40%)"
-      - margin-left: "9px"
+      - margin-left: "6px"
     custom_fields:
       i1:
         - border-radius: "50%"
         - width: "80%"
         - height: "80%"
-        - font-size: "12px"
-        - line-height: "27px"
-        - grid-area: "icons"
+        - line-height: 0
+        - display: "grid"
       i2:
         - border-radius: "50%"
         - width: "80%"
         - height: "80%"
-        - font-size: "12px"
-        - line-height: "27px"
-        - grid-area: "icons"
+        - line-height: 0
+        - display: "grid"
       i3:
         - border-radius: "50%"
         - width: "80%"
         - height: "80%"
-        - font-size: "12px"
-        - line-height: "27px"
-        - grid-area: "icons"
+        - line-height: 0
+        - display: "grid"
       i4:
         - border-radius: "50%"
         - width: "80%"
         - height: "80%"
-        - font-size: "12px"
-        - line-height: "27px"
-        - grid-area: "icons"
+        - line-height: 0
+        - display: "grid"
+  state:
+    - styles:
+        custom_fields:
+          notification:
+            - border-radius: "50%"
+            - border: "2px solid var(--card-background-color)"
+            - width: "24.5px"
+            - height: "24.5px"
+            - position: "absolute"
+            - left: "50%"
+            - top: "50%"
+            - transform: "translate(-50%,-50%)"
+            - margin-top: "35%"
+            - margin-left: "-35%"
+            - line-height: 0
+            - display: "grid"
+            - background-color: >
+                [[[
+                  return "rgba(var(--color-red),1)";
+                ]]]
+      value: "unavailable"
   custom_fields:
+    notification: >
+      [[[
+        if (entity.state =='unavailable'){
+          return `<ha-icon icon="mdi:exclamation" style="width: 50%; height: 50%; color: var(--primary-background-color);"></ha-icon>`
+        }
+      ]]]
     i1:
       card:
         type: "custom:button-card"
@@ -140,7 +163,6 @@ card_room:
         hold_action:
           action: "more-info"
         entity: "[[[return variables.entity_id_4]]]"
----
 widget_icon_room:
   tap_action:
     action: "toggle"
@@ -150,13 +172,15 @@ widget_icon_room:
     grid:
       - grid-template-areas: "'i'"
     card:
+      - height: "100%"
       - box-shadow: "none"
       - padding: "0px"
-      - background-color: "rgba(var(--color-theme),0.05)"
-      - border-radius: "20px"
-      - place-self: "center"
-      - height: "32px"
     icon:
+      - width: "50%"
+      - heigth: "50%"
       - color: "rgba(var(--color-theme),0.2)"
+    img_cell:
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
   size: "15px"
   color: "var(--google-grey)"
