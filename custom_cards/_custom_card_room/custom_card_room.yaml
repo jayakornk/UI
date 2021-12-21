@@ -1,8 +1,8 @@
---- 
+---
 card_room:
   color: "var(--google-grey-500)"
-  show_icon: true"
-  show_name: true"
+  show_icon: true
+  show_name: true
   show_label: true
   size: "45%"
   aspect_ratio: "1/1"
@@ -24,7 +24,7 @@ card_room:
       - box-shadow: "var(--box-shadow)"
       - padding: "1px"
     grid:
-      - grid-template-areas: '"n n n i1" "l l l i2" "i i . i3" "i i . i4"'
+      - grid-template-areas: "'n n n i1' 'l l l i2' 'i i . i3' 'i i . i4'"
       - grid-template-columns: "1fr 1fr 1fr 1fr"
       - grid-template-rows: "1fr 1fr 1fr 1fr"
       - justify-items: "center"
@@ -96,9 +96,9 @@ card_room:
       card:
         type: "custom:button-card"
         icon: "mdi:lightbulb"
-        template: 
-          - yellow
-          - widget_icon_room
+        template:
+          - "yellow"
+          - "widget_icon_room"
         tap_action:
           action: "toggle"
         hold_action:
@@ -108,9 +108,9 @@ card_room:
       card:
         type: "custom:button-card"
         icon: "mdi:television-classic"
-        template: 
-          - green
-          - widget_icon_room
+        template:
+          - "green"
+          - "widget_icon_room"
         tap_action:
           action: "toggle"
         hold_action:
@@ -120,9 +120,9 @@ card_room:
       card:
         type: "custom:button-card"
         icon: "mdi:video-4k-box"
-        template: 
-          - yellow
-          - widget_icon_room
+        template:
+          - "yellow"
+          - "widget_icon_room"
         tap_action:
           action: "toggle"
         hold_action:
@@ -132,9 +132,9 @@ card_room:
       card:
         type: "custom:button-card"
         icon: "mdi:speaker"
-        template: 
-          - green
-          - widget_icon_room
+        template:
+          - "green"
+          - "widget_icon_room"
         tap_action:
           action: "toggle"
         hold_action:
@@ -148,7 +148,7 @@ widget_icon_room:
   show_name: false
   styles:
     grid:
-      - grid-template-areas: '"i"'
+      - grid-template-areas: "'i'"
     card:
       - box-shadow: "none"
       - padding: "0px"
