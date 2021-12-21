@@ -1,59 +1,162 @@
+--- 
 card_room:
-  tap_action:
-    action: more-info
-  color: var(--google-grey-500)
-  show_icon: true
-  show_name: true
+  color: "var(--google-grey-500)"
+  show_icon: true"
+  show_name: true"
   show_label: true
-  size: 55px
+  size: "45%"
+  aspect_ratio: "1/1"
   label: |-
-      [[[
-          var temperature = entity.attributes.room_temperature;
-          if (temperature == null) {
-            var temperature = '-';
-          }
-          return temperature + '°C'
-      ]]]
+    [[[
+      var temperature = entity.attributes.room_temperature;
+      var temperature_2 = entity.attributes.temperature;
+      if (temperature != null){
+        return temperature + '°C'
+      }else if (temperature_2 != null){
+        return temperature_2 + '°C'
+      } else {
+        return '-' + '°C'
+      }
+    ]]]
   styles:
     card:
-      - border-radius: 20px
-      - box-shadow: var(--box-shadow)
-      - padding: 1px
+      - border-radius: "20px"
+      - box-shadow: "var(--box-shadow)"
+      - padding: "1px"
     grid:
-      - grid-template-areas: '"n n" "l l" "i icon1"'
-      - grid-template-columns: 1fr 1fr
-      - grid-template-rows: min-content
+      - grid-template-areas: '"n n n i1" "l l l i2" "i i . i3" "i i . i4"'
+      - grid-template-columns: "1fr 1fr 1fr 1fr"
+      - grid-template-rows: "1fr 1fr 1fr 1fr"
+      - justify-items: "center"
     icon:
-      - left: 4px
-      - bottom: 10px
-      - color: 'rgba(var(--color-theme),0.2)'
+      - color: "rgba(var(--color-theme),0.2)"
     img_cell:
-      - background-color: 'rgba(var(--color-theme),0.05)'
-      - border-radius: 50%
-      - place-self: end
-      - width: 102px
-      - height: 82px
-      - margin-left: -30px
-      - top: 22px
-      - padding: 10px
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "50%"
+      - width: "80%"
+      - height: "80%"
+      - max-width: "none"
+      - max-height: "none"
+      - position: "absolute"
+      - left: "50%"
+      - top: "50%"
+      - transform: "translate(-50%,-50%)"
+      - margin-top: "25%"
+      - margin-left: "-25%"
     name:
-      - align-self: end
-      - justify-self: start
-      - font-weight: bold
-      - font-size: 20px
-      - margin-left: 15px
-      - margin-top: 8px
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "16px"
+      - margin-left: "9px"
+      - margin-top: "9px"
     label:
-      - justify-self: start
-      - align-self: start
-      - font-weight: bolder
-      - font-size: 12px
-      - filter: opacity(40%)
-      - margin-left: 15px
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "12px"
+      - filter: "opacity(40%)"
+      - margin-left: "9px"
+      - margin-top: "-38%"
     state:
-      - justify-self: start
-      - align-self: start
-      - font-weight: bolder
-      - font-size: 12px
-      - filter: opacity(40%)
-      - margin-left: 12px
+      - justify-self: "start"
+      - font-weight: "bold"
+      - font-size: "12px"
+      - filter: "opacity(40%)"
+      - margin-left: "9px"
+    custom_fields:
+      i1:
+        - border-radius: "50%"
+        - width: "80%"
+        - height: "80%"
+        - font-size: "12px"
+        - line-height: "27px"
+        - grid-area: "icons"
+      i2:
+        - border-radius: "50%"
+        - width: "80%"
+        - height: "80%"
+        - font-size: "12px"
+        - line-height: "27px"
+        - grid-area: "icons"
+      i3:
+        - border-radius: "50%"
+        - width: "80%"
+        - height: "80%"
+        - font-size: "12px"
+        - line-height: "27px"
+        - grid-area: "icons"
+      i4:
+        - border-radius: "50%"
+        - width: "80%"
+        - height: "80%"
+        - font-size: "12px"
+        - line-height: "27px"
+        - grid-area: "icons"
+  custom_fields:
+    i1:
+      card:
+        type: "custom:button-card"
+        icon: "mdi:lightbulb"
+        template: 
+          - yellow
+          - widget_icon_room
+        tap_action:
+          action: "toggle"
+        hold_action:
+          action: "more-info"
+        entity: "[[[return variables.entity_id_1]]]"
+    i2:
+      card:
+        type: "custom:button-card"
+        icon: "mdi:television-classic"
+        template: 
+          - green
+          - widget_icon_room
+        tap_action:
+          action: "toggle"
+        hold_action:
+          action: "more-info"
+        entity: "[[[return variables.entity_id_2]]]"
+    i3:
+      card:
+        type: "custom:button-card"
+        icon: "mdi:video-4k-box"
+        template: 
+          - yellow
+          - widget_icon_room
+        tap_action:
+          action: "toggle"
+        hold_action:
+          action: "more-info"
+        entity: "[[[return variables.entity_id_3]]]"
+    i4:
+      card:
+        type: "custom:button-card"
+        icon: "mdi:speaker"
+        template: 
+          - green
+          - widget_icon_room
+        tap_action:
+          action: "toggle"
+        hold_action:
+          action: "more-info"
+        entity: "[[[return variables.entity_id_4]]]"
+---
+widget_icon_room:
+  tap_action:
+    action: "toggle"
+  show_icon: true
+  show_name: false
+  styles:
+    grid:
+      - grid-template-areas: '"i"'
+    card:
+      - box-shadow: "none"
+      - padding: "0px"
+      - background-color: "rgba(var(--color-theme),0.05)"
+      - border-radius: "20px"
+      - place-self: "center"
+      - height: "32px"
+    icon:
+      - color: "rgba(var(--color-theme),0.2)"
+  size: "15px"
+  color: "var(--google-grey)"
