@@ -118,7 +118,12 @@ card_room:
     i1:
       card:
         type: "custom:button-card"
-        icon: "mdi:lightbulb"
+        icon: >
+          [[[
+            if (variables.entity_id_1) {
+              return states[variables.entity_id_1].attributes.icon;
+            }
+          ]]]
         template:
           - "yellow"
           - "widget_icon_room"
@@ -141,7 +146,12 @@ card_room:
     i2:
       card:
         type: "custom:button-card"
-        icon: "mdi:television-classic"
+        icon: >
+          [[[
+            if (variables.entity_id_2) {
+              return states[variables.entity_id_2].attributes.icon;
+            }
+          ]]]
         template:
           - "green"
           - "widget_icon_room"
@@ -164,7 +174,12 @@ card_room:
     i3:
       card:
         type: "custom:button-card"
-        icon: "mdi:video-4k-box"
+        icon: >
+          [[[
+            if (variables.entity_id_3) {
+              return states[variables.entity_id_3].attributes.icon;
+            }
+          ]]]
         template:
           - "yellow"
           - "widget_icon_room"
@@ -187,7 +202,12 @@ card_room:
     i4:
       card:
         type: "custom:button-card"
-        icon: "mdi:speaker"
+        icon: >
+          [[[
+            if (variables.entity_id_4) {
+              return states[variables.entity_id_4].attributes.icon;
+            }
+          ]]]
         template:
           - "green"
           - "widget_icon_room"
@@ -200,7 +220,7 @@ card_room:
             if (variables.entity_id_4) {
               return variables.entity_id_4;
             }
-          ]]]"
+          ]]]
         state:
           - operator: "template"
             value: "[[[ return !variables.entity_id_4; ]]]"
