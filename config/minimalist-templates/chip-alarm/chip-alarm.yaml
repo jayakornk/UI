@@ -1,0 +1,30 @@
+chip_alarm:
+  template: chips
+  entity: alarm_control_panel.home_alarm
+  show_icon: true
+  icon: >
+    [[[
+      var alarm = states['alarm_control_panel.home_alarm'].state;
+      if (alarm === 'disarmed') return 'mdi:shield-off';
+      if (alarm === 'armed_home') return 'mdi:shield-home';
+      if (alarm === 'armed_away' || alarm === 'arming') return 'mdi:shield-check';
+      return 'mdi:shield-alert';
+    ]]]
+  state:
+    - value: 'disarmed'
+      styles:
+        icon:
+          - color: rgba(var(--color-green), 1)
+    - value: 'triggered'
+      styles:
+        icon:
+          - color: rgba(var(--color-yellow), 1)
+          - animation: blink 2s ease infinite
+    - operator: 'default'
+      styles:
+        icon:
+          - color: rgba(var(--color-red), 1)
+  size: 80%
+  styles:
+    grid:
+      - grid-template-areas: '"i"'

@@ -1,0 +1,9 @@
+chip_home_presence:
+  tap_action:
+    action: navigate
+    navigation_path: '/lovelace-mobile/persons/'
+  label: |
+    [[[
+      return '🏠 ' +  states['sensor.people_home'].state;
+    ]]]
+  template: chips

@@ -1,0 +1,13 @@
+television:
+  show_last_changed: false
+  state:
+    - icon: mdi:television-classic
+      label: Actief
+      value: 'on'
+      id: 'on'
+    - icon: mdi:television-classic-off
+      label: Uitgeschakeld
+      value: 'off'
+      id: 'off'
+  template:
+    - card_binary_sensor

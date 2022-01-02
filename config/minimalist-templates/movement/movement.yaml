@@ -1,0 +1,5 @@
+movement:
+  show_last_changed: true
+  template: 
+    - blue_on
+    - card_binary_sensor

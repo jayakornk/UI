@@ -1,0 +1,15 @@
+door:
+  show_last_changed: false
+  state:
+    - value: 'on'
+      id: 'on'
+      icon: mdi:door-open
+      label: Open
+    - value: 'off'
+      id: 'off'
+      icon: mdi:door-closed
+      label: Gesloten
+  template:
+    - card_binary_sensor
+    - green_off
+    - red_on

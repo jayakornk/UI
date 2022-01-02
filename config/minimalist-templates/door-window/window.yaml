@@ -1,0 +1,15 @@
+window:
+  show_last_changed: false
+  state:
+    - value: 'on'
+      id: 'on'
+      icon: mdi:window-open-variant
+      label: Open
+    - value: 'off'
+      id: 'off'
+      icon: mdi:window-closed-variant
+      label: Gesloten
+  template:
+    - card_binary_sensor
+    - green_off
+    - red_on

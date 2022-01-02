@@ -1,0 +1,23 @@
+chip_house_mode:
+  tap_action:
+    action: call-service
+    service: input_select.select_next
+    service_data:
+      entity_id: input_select.huis_modus
+    confirmation:
+      text: Ben je zeker?
+  label: |
+    [[[
+      var house_mode = states['input_select.huis_modus'].state;
+      switch(house_mode) {            
+        case 'Day':
+          return '☀️ Dag'
+        case 'Going to bed':
+          return '🌇 Avond'
+        case 'Night':
+          return '🌙 Nacht'
+        case 'Waking up':
+          return '🌄 Ochtend'
+      }
+    ]]]
+  template: chips
