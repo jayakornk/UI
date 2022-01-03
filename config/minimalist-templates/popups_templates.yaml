@@ -451,7 +451,7 @@ popup_power_outlet_history:
                 - "popup_button_history"
 
 popup_light:
-  hold_action:
+  tap_action:
     action: "fire-dom-event"
     browser_mod:
       command: "popup"

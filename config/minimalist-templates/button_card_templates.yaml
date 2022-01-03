@@ -485,6 +485,7 @@ card_light_slider:
         template:
           - "icon_info"
           - "yellow_slider"
+          - "popup_light"
         entity: "[[[ return entity.entity_id ]]]"
         label: >-
           [[[
