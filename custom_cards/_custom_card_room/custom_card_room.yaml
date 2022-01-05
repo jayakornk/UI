@@ -21,10 +21,15 @@ card_room:
     [[[
       var temperature = entity.attributes.room_temperature;
       var temperature_2 = entity.attributes.temperature;
+      var temperature_3 = entity.state;
       if (temperature != null){
         return temperature + '°C'
       }else if (temperature_2 != null){
         return temperature_2 + '°C'
+      }else if (temperature_3 == "unavailable"){
+        return '-' + '°C'
+      }else if (temperature_3 != null){
+        return temperature_3 + '°C'
       } else {
         return '-' + '°C'
       }
