@@ -1,4 +1,5 @@
 chip_house_mode:
+  entity: input_select.huis_modus
   tap_action:
     action: call-service
     service: input_select.select_next
@@ -6,6 +7,8 @@ chip_house_mode:
       entity_id: input_select.huis_modus
     confirmation:
       text: Ben je zeker?
+  hold_action:
+    action: more-info
   label: |
     [[[
       var house_mode = states['input_select.huis_modus'].state;
