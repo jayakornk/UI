@@ -25,7 +25,7 @@ card_room:
         }
         return (entity.attributes.current_temperature || entity.attributes.temperature) + '°C';
       } else {
-        return variables.ulm_unavailable;
+        return '-' + '°C';
       }
     ]]]
   state:
